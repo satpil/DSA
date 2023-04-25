@@ -1,26 +1,37 @@
 //Given a string, find the length of the longest substring in it with no more than K distinct characters.
 
-// Input: String="araaci", K=2
+// Input: String="araaaci", K=2
 // Output: 4
 
-function longestSubstring(){
+function longestSubstring(nums,k){
 let maxSub = 0;
 let np = new Map();
 let startIndex = 0;
 let unique = 0;
 
-for(let i = 0;nums < nums.length;i++){
+for(let i = 0;i < nums.length;i++){
     if(np.has(nums[i])){
-       maxSub = Math.max(maxSub,)
+        np.set(nums[i],np.get(nums[i])+1)
+
+       maxSub = Math.max(maxSub,i-startIndex+1)
     }else{
         unique++
-        if(unique > 2){
-         return maxSub;
+        np.set(nums[i],1)
+        while(unique > k){
+         if(np.size > k){
+            np.set(nums[startIndex],np.get(nums[startIndex])-1)
+            if(np.get(nums[startIndex]) === 0){
+                np.delete(nums[startIndex])
+            }
+            startIndex++
+         }else{
+            unique--
+         }
         }
-        np.set(nums[i],np.get(nums[i])+1)
     }
 }
+return maxSub;
 
 }
-const res = longestSubstring('araaci',2);
+const res = longestSubstring('araaaci',2);
 console.log(res);
