@@ -1,7 +1,7 @@
 //Given a string, find the length of the longest substring in it with no more than K distinct characters.
 
 // Input: String="araaaci", K=2
-// Output: 4
+// Output: 5
 
 function longestSubstring(nums,k){
 let maxSub = 0;

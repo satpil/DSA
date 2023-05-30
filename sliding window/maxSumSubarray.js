@@ -5,12 +5,21 @@
 // Output: 9
 
 function max_Subarray (nums,k){
-    let windowSum = 0;
+
+    // declare a maxsum variable to store the maximum sum this will specidif to this question
     let maxSum  = 0;
+
+    // in sliding pattern we need the windowsum and start index this is common in all sliding window pattern
+
+    let windowSum = 0;
     let startIndex = 0;
+
+
     if(nums.length < k){
         return false
     }
+
+    //for loop is common pattern in sliding
     for(let i=0;i < nums.length;i++){
         windowSum += nums[i];
         if(i >= k-1){
